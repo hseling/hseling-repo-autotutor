@@ -1,10 +1,9 @@
 FROM hseling/hseling-api-base:python3.6-alpine3.7 as build
 
-LABEL maintainer="Natalia Isupova <info@linghub.ru>"
+LABEL maintainer="Nikolay Babakov"
 
 RUN mkdir /dependencies
 COPY ./hseling_api_autotutor/requirements.txt /dependencies/requirements.txt
-COPY ./hseling_api_autotutor/setup.py /dependencies/setup.py
 
 RUN pip install -r /dependencies/requirements.txt
 
@@ -15,12 +14,19 @@ COPY --from=build /usr/lib/python3.6/site-packages /usr/lib/python3.6/site-packa
 
 COPY --from=build /dependencies /dependencies
 
-COPY ./hseling_lib_autotutor /dependencies/hseling_lib_autotutor
-RUN pip install /dependencies/hseling_lib_autotutor
+RUN mkdir /hseling_api_autotutor
 
-COPY ./hseling_api_autotutor/hseling_api_autotutor /app/hseling_api_autotutor
-COPY ./hseling_api_autotutor/main.py /app/main.py
+WORKDIR /hseling_api_autotutor
 
-ENV HSELING_API_AUTOTUTOR_SETTINGS="/app/hseling_api_autotutor/default_settings.py"
+COPY . /hseling_api_autotutor/
 
-HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
+EXPOSE 5000
+
+RUN pip3 install -r requirements.txt
+
+RUN wget https://github.com/jwijffels/udpipe.models.ud.2.0/raw/master/inst/udpipe-ud-2.0-170801/russian-syntagrus-ud-2.0-170801.udpipe -O /hseling_api_autotutor/app/recommendation_logic/processing_data/russian-syntagrus-ud-2.0-170801.udpipe
+
+RUN wget https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ru.300.vec.gz -O /hseling_api_autotutor/app/recommendation_logic/processing_data/cc.ru.300.vec.gz
+RUN gzip -d  /hseling_api_autotutor/app/recommendation_logic/processing_data/cc.ru.300.vec.gz
+
+CMD flask run --host='0.0.0.0'

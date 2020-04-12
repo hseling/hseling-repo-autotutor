@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<!--{% load staticfiles %}-->
+{% load static %}
+
+
+<head>
+    <meta name="yandex-verification" content="8996e332d15f600f"/>
+    <meta charset="UTF-8">
+    <title>Autotutor</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="shortcut icon" type="image/jpg" href="{% static "images/favicon.ico" %}">
+
+    <style>
+        {% block stсyle %}
+        {% endblock %}
+
+    </style>
+</head>
+
+
+
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+{% endblock %}
+
+<!--{% block title %}Автотьютор{% endblock %}-->
+
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+{% block scripts %} {% endblock %}
+
+{% block content %}
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Автотьютор</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul> -->
+                <!--<form class="form-inline mt-2 mt-md-0" style="position: absolute; right: 10px">-->
+                    <!--<input class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Search">-->
+                    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>-->
+                <!--</form>-->
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+
+                        <img class="d-block w-100" src="{% static "images/head.jpg" %}" alt="First slide"/>
+                    </svg>
+
+                    <div class="container">
+                        <div class="carousel-caption text-right">
+                            <h1>Тексты для продолжающих</h1>
+                            <p>Получи русский текст, который тебе «по зубам»</p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/register/" role="button">Зарегистрироваться</a>
+                            </p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/login/" role="button">Войти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <img class="d-block w-100" src="{% static "images/head1.jpg" %}" alt="First slide"/>
+                    </svg>
+                    <div class="container">
+                        <div class="carousel-caption text-right">
+                            <h1>Читай без боли</h1>
+                            <p>Мы подберем тексты, которые не будут слишком сложными</p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/register/" role="button">Зарегистрироваться</a>
+                            </p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/login/" role="button">Войти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                         preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                        <img class="d-block w-100" src="{% static "images/head2.jpg" %}" alt="First slide"/>
+                    </svg>
+                    <div class="container">
+                        <div class="carousel-caption text-right">
+                            <h1>Научно-популярные тексты</h1>
+                            <p>Читай тексты на интересные темы, которые написаны носителями для носителей</p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/register/" role="button">Зарегистрироваться</a>
+                            </p>
+                            <p><a class="btn btn-lg btn-primary" href="/account/login/" role="button">Войти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <!-- <h2 class="text-muted" style="position: absolute; left: 20%">Начать читать просто. Сделай 3 шага!</h2> -->
+        <div class="container marketing">
+            <!-- START THE FEATURETTES -->
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Это просто! Пройди небольшой тест</h2>
+                    <p class="lead">Ты прочитаешь 4-5 научно-популярных текстов и ответишь на 5 вопросов к каждому. Так мы сможем узнать твой уровень.</p>
+                </div>
+                <div class="col-md-5">
+                        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                             src="{% static "images/info1.jpg" %}" width="100%" height="100%"/>
+                        <!-- <rect fill="#eee" width="100%" height="100%"/>
+                        <text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text>
+                        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                         height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                         focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>-->
+
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Подожди минутку</h2>
+                    <p class="lead">За это время мы проанализируем твои ответы и подберем тебе тексты. Можешь пока налить себе чашку чая.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                             src="{% static "images/info2.jpg" %}" width="100%" height="100%"/>
+                    <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                         height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                         focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>
+                        <rect fill="#eee" width="100%" height="100%"/>
+                        <text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text>
+                    </svg> -->
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Готово!</h2>
+                    <p class="lead">Читай научно-популярные тексты на русском языке, которые подходят под твой уровень. Пройди ещё 3-4 теста, чтобы получить больше рекомендованных текстов.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                             src="{% static "images/info3.jpg" %}" width="100%" height="100%"/>
+                    <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                         height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                         focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>
+                        <rect fill="#eee" width="100%" height="100%"/>
+                        <text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text>
+                    </svg> -->
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+        </div><!-- /.container -->
+
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Наверх</a></p>
+            <p><a class="btn btn-lg btn-primary" href="/account/about/" role="button">О проекте</a>
+            <p>&copy; 2019 Автотьютор </p>
+            <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> -->
+        </footer>
+    </main>
+
+    <script src="{% static "js/jquery-3.4.1.min.js" %}"
+            integrity="sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==o"
+            crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static "js/jquery-3.4.1.min.js" %}"><\/script>')</script>
+    <script src="{% static "js/bootstrap.bundle.js" %}"
+            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+            crossorigin="anonymous"></script>
+
+
+{% endblock %}
+
+</html>

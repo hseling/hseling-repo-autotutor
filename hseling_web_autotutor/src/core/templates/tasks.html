@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+<!--{% load staticfiles %}-->
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+{% endblock %}
+
+<!--{% block title %}Автотьютор{% endblock %}-->
+
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+{% block scripts %} {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-md-9">
+        <form class="lead" method="post">
+            <div style="margin: 20px">
+                <br>
+                <h3>
+                    <textarea name="qname" hidden="True">{{name}}</textarea>
+                    Пройдите тест 4 раза или больше, и мы сможем подобрать для вас тексты.
+                </h3>
+                <br>
+                <br>
+                <h4>
+                    <textarea name="qname" hidden="True">{{name}}</textarea>
+                    Прочитайте текст
+                </h4>
+                {% csrf_token %}
+
+                <br>
+
+                {{ whole_text }}
+                <br>
+                <br>
+                <!--<br>-->
+                <h4>
+                    Прочитайте следующие предложения (или словосочетания) и ответьте о каждом: понятно ли оно вам?
+                </h4>
+                <br>
+                {% for el in questions %}
+                    <!--<br>-->
+                    <p>{{ el.sent_text }}</p>
+                    <!--<span>-->
+                    <!--<input name="{{ el.sent_ind }}" type="radio" value="{{ el.sent_ind }}" style="transform:scale(2.5);" >-->
+                    <!--<p>-->
+                    <label class="btn btn-lg btn-default">
+                        <input name="{{ el.sent_ind }}" type="radio" value="Да"
+                               style="transform:scale(1);"> Да
+                    </label>
+                    <label class="btn btn-lg btn-default">
+                        <input name="{{ el.sent_ind }}" type="radio" value="Нет"
+                               style="transform:scale(1);"> Нет
+                    </label>
+
+                {% endfor %}
+                <br>
+                <br>
+                <button class="btn btn-lg btn-success" type="submit" value="Ответить"
+                        name="_answer" > Ответить и пройти еще тест
+                </button>
+                <br>
+                <br>
+                {% if go_to_text %}
+                    <p><a class="btn btn-lg btn-primary" href="/tutor/read/" role="button">Перейти к рекомендованым текстам</a></p>
+                {% endif %}
+                </th>
+
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

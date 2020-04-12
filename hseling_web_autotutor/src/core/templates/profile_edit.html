@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+<!--{% load staticfiles %}-->
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+{% endblock %}
+
+<!--{% block title %}Автотьютор{% endblock %}-->
+
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+{% block scripts %} {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="col-md-9">
+        <form class="lead" method="post">
+            <div style="margin: 20px">
+                <br>
+                <h4>
+                    <!--{{ name }}-->
+                    Личная информация
+                </h4>
+                <br>
+                Логин: {{ username }}
+
+
+                <br>
+                <br>
+                <!--Имя: {{ first_name }}-->
+                Имя: <input type="text" id="fname" name="first_name" value="{{first_name}}">
+                <br>
+                <br>
+                Фамилия: <input type="text" id="fname" name="last_name" value="{{ last_name }}">
+                <br>
+                <br>
+                Email: <input type="text" id="fname" name="email" value="{{ email }}">
+                <br>
+                <br>
+                <!--In_API: {{ user.profile.is_in_api }}-->
+
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-success" type="submit">Сохранить</button>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
