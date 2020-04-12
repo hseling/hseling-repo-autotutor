@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': 'seleniumserver',
         'USER': 'userbd',
         'PASSWORD': 'Qqqq2222',
-        'HOST': 'localhost',
+        'HOST': '0.0.0.0',
         'PORT': '5432',
     }
 }
@@ -107,12 +107,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
+"""STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
     os.path.join('static'),
-    os.path.join('~/auto/autotutor_web/static/')
-]
+]"""
 
 # Настройка переадресации авторизациии по умолчанию
 # LOGIN_URL = 'accounts/login/'

@@ -105,4 +105,4 @@ ENV/
 # JavaScript
 node_modules
 
-.idea/
+.idea

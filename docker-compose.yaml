@@ -4,6 +4,7 @@ x-common-variables: &common-variables
  CELERY_BROKER_URL: redis://redis:6379
  CELERY_RESULT_BACKEND: redis://redis:6379
  RESTRICTED_MODE: 0
+ FLASK_APP: manage.py
 
 services:
  hse-api-web:
