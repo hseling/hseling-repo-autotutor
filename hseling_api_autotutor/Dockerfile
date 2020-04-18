@@ -6,7 +6,7 @@ WORKDIR /hseling_api_autotutor
 
 COPY . /hseling_api_autotutor/
 
-EXPOSE 5000
+EXPOSE 80
 
 RUN pip3 install -r hseling_api_autotutor/requirements.txt
 
@@ -15,4 +15,4 @@ RUN pip3 install -r hseling_api_autotutor/requirements.txt
 #RUN wget https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ru.300.vec.gz -O hseling_api_autotutor/app/recommendation_logic/processing_data/cc.ru.300.vec.gz
 #RUN gzip -d  hseling_api_autotutor/app/recommendation_logic/processing_data/cc.ru.300.vec.gz
 
-CMD flask run --host='0.0.0.0'
+CMD flask run --host='0.0.0.0:80'
