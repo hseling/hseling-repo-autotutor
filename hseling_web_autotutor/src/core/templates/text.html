@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+<!--{% load staticfiles %}-->
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+{% endblock %}
+
+<!--{% block title %}Автотьютор{% endblock %}-->
+
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+{% block scripts %} {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-md-9">
+        <form class="lead" method="post">
+            <div style="margin: 20px">
+
+                {% csrf_token %}
+                <br>
+                <h3>
+                    Перед вами текст, подобранный алгоритмом.<br/>
+                </h3>
+                <br>
+                <h5>
+                    <font color="green">Чтобы сохранить текст: выделите нужный фрагмент страницы, нажмите <strong>Ctrl + C</strong></font><font color="green">, откройте текстовый редактор, нажмите <strong>Ctrl + V</strong></font><font color="green">.</font>
+                </h5>
+                <br>
+                <!--<p>Источник текстов: nauka.tass.ru, ex. "Чердак"</p>-->
+                <br>
+                {% for el in data %}
+
+                    {{ el.1 }}
+                    <br>
+                    <br>
+                {% endfor %}
+                <p><a class="btn btn-lg btn-success" href="/tutor/read/" role="button">Читать другой рекомендованный текст</a></p>
+                <p><a class="btn btn-lg btn-primary" href="/tutor/tasks/" role="button">Чтобы улучшить рекомендации, пройдите больше тестов</a></p>
+                <!--<br>-->
+                <!--<br>-->
+                <!-- <button class="btn btn-success" type="submit" style=";width:150px;height:100px" value="Ответить"
+                        name="_answer"> Готово
+                </button> -->
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

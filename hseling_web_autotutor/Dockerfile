@@ -71,7 +71,7 @@ ADD ./src/ /opt/code/
 
 # Generate static files
 RUN cd web/static; npm install .; cd ../..
-RUN python3 manage.py collectstatic
+RUN python3 manage.py collectstatic --noinput
 
 EXPOSE 80
 CMD ["/bin/sh", "/opt/server/start_server.sh"]

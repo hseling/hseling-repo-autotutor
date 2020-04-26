@@ -1,11 +1,22 @@
 uwsgi==2.0.17
-requests>=2.20.0
-django>=1.11.23
 pytest-django==3.1.2
 psycopg2==2.7.4
 djangorestframework>=3.9.1
 django-log-request-id==1.3.2
 django-prometheus==1.1.0
 
-jsonrpcclient[requests]==3.3.4
-
+amqp==2.5.1
+billiard==3.6.1.0
+Django==2.2.4
+importlib-metadata==0.19
+kombu==4.6.4
+more-itertools==7.2.0
+psycopg2-binary
+python-dateutil==2.8.0
+pytz==2019.2
+six==1.12.0
+sqlparse==0.3.0
+vine==1.3.0
+zipp==0.6.0
+django-crispy-forms
+requests==2.22.0
