@@ -15,7 +15,7 @@ psycopg2-binary
 python-dateutil==2.8.0
 pytz==2019.2
 six==1.12.0
-sqlparse==0.3.0
+sqlparse==0.4.4
 vine==1.3.0
 zipp==0.6.0
 django-crispy-forms
